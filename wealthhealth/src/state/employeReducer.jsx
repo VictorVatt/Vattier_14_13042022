@@ -1,7 +1,22 @@
 export const ADD_EMPLOYEE = 'ADD_EMPLOYEE'
 
+export const initialStete = {
+    firstName: '',
+    lastName: '',
+    birthdate : new Date(),
+    startDate: new Date(),
+    street: '',
+    city: '',
+    state: "",
+    zipCode: '',
+    department: "",
+}
+
+
 function addEmployeeToTheList (employee, state) {
     const updateList = [...state.employeeList]
+    updateList.push({...employee})
+    return {...state, employeeList: updateList}
 }
 
 
