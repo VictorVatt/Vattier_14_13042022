@@ -7,10 +7,31 @@
 }
 
 .form-title {
-    margin: 0 0 1rem 0;
+    margin: 0 0 0.5rem 0;
     color: white;
 }
 
 .form {
     color: white;
+}
+.form input {
+    height: 37px;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+}
+.fieldset-name {
+    margin-bottom: 2rem;
+}
+.input-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem 1rem;
+}
+
+.input-label {
+    font-size: 14px;
+}
+
+.fieldset-adress {
+    margin-bottom: 1rem;
 }
