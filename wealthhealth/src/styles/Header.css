@@ -1,0 +1,15 @@
+.header-container {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-logo {
+    width: 300px;
+    margin-bottom: 30px;
+}
+.header-link {
+    text-decoration: none;
+    color: #365AB4;
+}
