@@ -3,7 +3,7 @@ import employeeReducer, {ADD_EMPLOYEE} from "./employeReducer"
 import { EmployeeContext } from "./CreateContext"
 
 
-function GlobalState() {
+function GlobalState({ children }) {
     const employee = []
     const [listState, dispatch] = useReducer(employeeReducer, {employeeList: []} )
 
@@ -17,7 +17,7 @@ function GlobalState() {
             list: listState,
             addEmployeeToTheList: addEmployeeToTheList,
         }}>
-
+            {children}
 
 
         </EmployeeContext.Provider>

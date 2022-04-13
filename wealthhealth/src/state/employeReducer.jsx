@@ -1,6 +1,6 @@
 export const ADD_EMPLOYEE = 'ADD_EMPLOYEE'
 
-export const initialStete = {
+export const initialState = {
     firstName: '',
     lastName: '',
     birthdate : new Date(),
