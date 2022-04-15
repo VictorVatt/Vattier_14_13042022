@@ -1,23 +1,24 @@
-import { useContext, useState } from 'react'
-import { EmployeeContext } from '../../state/CreateContext'
-import {  initialState } from '../../state/employeReducer'
+import { useState } from 'react'
+import { useDispatch } from "react-redux"
+import { newEmployee } from '../../utils/reducers/newEmployeeReducer'
+import { initialEmployeeState } from '../../utils/constants'
+
 import '../../styles/Form.css'
 import DropdownMenu from '../DropdownMenu/DropdownMenu'
 
 function EmployeeForm() {
 
-    const [newEmployee, setNewEmployee] = useState(initialState)
-    const context = useContext(EmployeeContext)
-    const [error, setError] = useState("")
+    const [employeeData, setEmployeeData] = useState(initialEmployeeState)
+
+    const dispatch = useDispatch()
 
      const handleSubmit = (e) => {
         e.preventDefault()
-        if (newEmployee.firstName.length === 0) {
-            console.log("bloqué")
+        if (employeeData.firstName.length === 0 || employeeData.lastName.length === 0 ) {
+            console.log("ya une couille dans le paté")
         } else {
-            context.addEmployeeToTheList(newEmployee, error)
-            console.log(context)
-            setNewEmployee(initialState)
+            console.log(employeeData)
+            dispatch(newEmployee(employeeData))
         }
 
      }
@@ -29,24 +30,25 @@ function EmployeeForm() {
                     <legend>Employee</legend>
                     <div className='input-container'>
                         <label className='input-label'>First Name</label>
-                        <input 
-                            type='text' 
-                            id='firstName'
-                            name='firstName' 
-                            value={newEmployee.firstName}
-                            onChange={(e) => {
-                                console.log(newEmployee)
-                                setNewEmployee((state) => ({
-                                ...state,
+                        <input type='text' id='firstName'name='firstName' value={employeeData.firstName} 
+                                onChange={(e) => {
+                                setEmployeeData((employeeState) => ({
+                                    ...employeeState,
                                 [e.target.id]: e.target.value
 
                                 }))
-                            }}
-                        ></input>
+                            }}>
+                        </input>
                     </div>
                     <div className='input-container'>
                         <label className='input-label'>Last Name</label>
-                        <input type='text'></input>
+                        <input type='text' id='lastName' name='lastName' value={employeeData.lastName}
+                                onChange={(e) => {
+                                    setEmployeeData((employeeState) => ({
+                                        ...employeeState,
+                                        [e.target.id]: e.target.value
+                                    }))
+                                }}></input>
                     </div>
                     <div className='input-container'>
                         <label className='input-label'>Date of Birth</label>
@@ -77,7 +79,7 @@ function EmployeeForm() {
                     </div>
                 </fieldset>
                 <button type='button' className='buttonDefault' onClick={handleSubmit}>Save</button>
-                <p>{error}</p>
+                <p></p>
             </form>
         </section>
     )
