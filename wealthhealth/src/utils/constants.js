@@ -237,11 +237,29 @@ export const USstates = [
     }
 ]
 
+export const departments = [{
+    value: 'sales',
+    label: 'Sales'
+},
+{
+    value: 'engineering',
+    label: 'Engineering'
+},
+{
+    value: 'hr',
+    label: 'Human Resources'
+},
+{
+    value: 'legal',
+    label: 'Legal'
+}
+]
+
 export const initialEmployeeState = {
     firstName: '',
     lastName: '',
-    birthdate : '',
-    startDate: '',
+    birthdate : new Date(),
+    startDate: new Date(),
     street: '',
     city: '',
     state: '',

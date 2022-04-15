@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useDispatch } from "react-redux"
 import { newEmployee } from '../../utils/reducers/newEmployeeReducer'
-import { initialEmployeeState } from '../../utils/constants'
+import { departments, initialEmployeeState } from '../../utils/constants'
 import Select from 'react-select'
 import { USstates } from '../../utils/constants'
 import '../../styles/Form.css'
@@ -98,7 +98,6 @@ function EmployeeForm() {
                         <label className='input-label'>State</label>
                         <Select options={USstates} className='dropdown-menu' id='state' name="state"
                                  onChange={(e) => {
-                                     console.log(e.label)
                                     setEmployeeData((employeeState) => ({
                                         ...employeeState,
                                         state: e.label
@@ -107,9 +106,25 @@ function EmployeeForm() {
                     </div>
                     <div className='input-container'>
                         <label className='input-label'>ZipCode</label>
-                        <input type='number' id="zipcode" name='zipcode'></input>
+                        <input type='number' id="zipCode" name='zipCode' 
+                                onChange={(e) => {
+                                    setEmployeeData((employeeState) => ({
+                                        ...employeeState,
+                                        [e.target.id]: e.target.value
+                                    }))
+                                }}></input>
                     </div>
                 </fieldset>
+                <div className='input-container'>
+                        <label className='input-label'>Department</label>
+                        <Select options={departments} className='dropdown-menu' id='department' name="department"
+                                 onChange={(e) => {
+                                    setEmployeeData((employeeState) => ({
+                                        ...employeeState,
+                                        department: e.label
+                                    }))
+                            }}/>
+                    </div>
                 <button type='button' className='buttonDefault' onClick={handleSubmit}>Save</button>
                 <p></p>
             </form>
