@@ -2,9 +2,10 @@ import { useState } from 'react'
 import { useDispatch } from "react-redux"
 import { newEmployee } from '../../utils/reducers/newEmployeeReducer'
 import { initialEmployeeState } from '../../utils/constants'
-
+import Select from 'react-select'
+import { USstates } from '../../utils/constants'
 import '../../styles/Form.css'
-import DropdownMenu from '../DropdownMenu/DropdownMenu'
+
 
 function EmployeeForm() {
 
@@ -52,30 +53,61 @@ function EmployeeForm() {
                     </div>
                     <div className='input-container'>
                         <label className='input-label'>Date of Birth</label>
-                        <input type='date'></input>
+                        <input type='date' id='birthdate' name='birthdate' value={employeeData.birthdate}
+                                onChange={(e) => {
+                                    setEmployeeData((employeeState) => ({
+                                        ...employeeState,
+                                        [e.target.id]: e.target.value
+                                    }))
+                                }}></input>
                     </div>
                     <div className='input-container'>
                         <label className='input-label'>Start Date</label>
-                        <input type='date'></input> 
+                        <input type='date' id='startDate' name='startDate' value={employeeData.startDate}
+                                onChange={(e) => {
+                                setEmployeeData((employeeState) => ({
+                                    ...employeeState,
+                                    [e.target.id]: e.target.value
+                                }))
+                            }}></input> 
                     </div>
                 </fieldset>
                 <fieldset className='fieldset-adress'>
                     <legend>Adress</legend>
                     <div className='input-container'>
                         <label className='input-label'>Street</label>
-                        <input type='text'></input>
+                        <input type='text' id='street' name='street' value={employeeData.street}
+                                onChange={(e) => {
+                                    setEmployeeData((employeeState) => ({
+                                        ...employeeState,
+                                        [e.target.id]: e.target.value
+                                    }))
+                                }}></input>
                     </div>
                     <div className='input-container'>
                         <label className='input-label'>City</label>
-                        <input type='text'></input>
+                        <input type='text' id='city' name='city' 
+                                onChange={(e) => {
+                                    setEmployeeData((employeeState) => ({
+                                        ...employeeState,
+                                        [e.target.id]: e.target.value
+                                    }))
+                                }}></input>
                     </div>
                     <div className='input-container'>
                         <label className='input-label'>State</label>
-                        <DropdownMenu />
+                        <Select options={USstates} className='dropdown-menu' id='state' name="state"
+                                 onChange={(e) => {
+                                     console.log(e.label)
+                                    setEmployeeData((employeeState) => ({
+                                        ...employeeState,
+                                        state: e.label
+                                    }))
+                            }}/>
                     </div>
                     <div className='input-container'>
                         <label className='input-label'>ZipCode</label>
-                        <input type='text'></input>
+                        <input type='number' id="zipcode" name='zipcode'></input>
                     </div>
                 </fieldset>
                 <button type='button' className='buttonDefault' onClick={handleSubmit}>Save</button>
