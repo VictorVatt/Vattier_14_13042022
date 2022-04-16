@@ -1,7 +1,7 @@
 import { createAction, createReducer } from '@reduxjs/toolkit'
 
 const initialState = {
-    employeeList: []
+    employeeList: [],
 }
 
 export const newEmployee = createAction("newEmployee")

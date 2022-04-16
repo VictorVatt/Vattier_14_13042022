@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import moment from "moment"
 import { Link } from 'react-router-dom'
 import { useDispatch } from "react-redux"
 import { newEmployee } from '../../utils/reducers/newEmployeeReducer'
@@ -6,7 +7,9 @@ import { departments, initialEmployeeState } from '../../utils/constants'
 import Select from 'react-select'
 import { USstates } from '../../utils/constants'
 import '../../styles/Form.css'
+import DatePicker from "react-datepicker"
 import SubmitModal from '../Modal/SubmitModal'
+import "react-datepicker/dist/react-datepicker.css";
 
 
 function EmployeeForm() {
@@ -28,7 +31,7 @@ function EmployeeForm() {
 
      }
     return (
-        <div style={{display: "flex", alignItems: "center", flexDirection: 'column'}}>
+        <div style={{textAlign: 'center'}}>
             <Link className='header-link' to={'/list'}>View current employee</Link>
             <section className="form-wrapper">
                 <h1 className='form-title'>New Employee</h1>
@@ -59,13 +62,13 @@ function EmployeeForm() {
                         </div>
                         <div className='input-container'>
                             <label className='input-label'>Date of Birth</label>
-                            <input type='date' id='birthdate' name='birthdate' value={employeeData.birthdate}
-                                    onChange={(e) => {
-                                        setEmployeeData((employeeState) => ({
-                                            ...employeeState,
-                                            [e.target.id]: e.target.value
-                                        }))
-                                    }}></input>
+                            <DatePicker dateFormat="MMMM d, yyyy" selected={employeeData.birthdate} id='birthdate' strictParsing
+                                            onChange={(date) => {
+                                                setEmployeeData((employeeState) => ({
+                                                    ...employeeState,
+                                                    birthdate: date
+                                                }))
+                                            }}/>
                         </div>
                         <div className='input-container'>
                             <label className='input-label'>Start Date</label>
@@ -132,7 +135,7 @@ function EmployeeForm() {
                                 }}/>
                         </div>
                     <SubmitModal modalIsOpen={modalIsOpen} stateFunction={setModalIsOpen}/>
-                    <button type='button' className='buttonDefault' onClick={handleSubmit} >Save</button>
+                    <button type='button' className='submit-btn' onClick={handleSubmit} >Add a new employee</button>
                     <p></p>
                 </form>
             </section>

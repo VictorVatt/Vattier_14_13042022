@@ -258,7 +258,7 @@ export const departments = [{
 export const initialEmployeeState = {
     firstName: '',
     lastName: '',
-    birthdate : '',
+    birthdate : "",
     startDate: '',
     street: '',
     city: '',
@@ -277,7 +277,7 @@ export const dataTableLegends = [{
 },
 {
     name: 'Date of Birth',
-    selector: row => row.birthdate
+    selector: row => row.birthdate.toDateString()
 },
 {
     name: 'Start Date',

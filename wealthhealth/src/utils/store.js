@@ -3,7 +3,7 @@ import newEmployeeReducer from "./reducers/newEmployeeReducer";
 
 const store = configureStore({
     reducer: {
-        employees: newEmployeeReducer
+        employees: newEmployeeReducer,
     }
 })
 
