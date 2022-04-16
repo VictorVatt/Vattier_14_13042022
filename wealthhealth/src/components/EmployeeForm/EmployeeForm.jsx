@@ -6,11 +6,13 @@ import { departments, initialEmployeeState } from '../../utils/constants'
 import Select from 'react-select'
 import { USstates } from '../../utils/constants'
 import '../../styles/Form.css'
+import SubmitModal from '../Modal/SubmitModal'
 
 
 function EmployeeForm() {
 
     const [employeeData, setEmployeeData] = useState(initialEmployeeState)
+    const [modalIsOpen, setModalIsOpen] = useState(false)
 
     const dispatch = useDispatch()
 
@@ -19,6 +21,7 @@ function EmployeeForm() {
         if (employeeData.firstName.length === 0 || employeeData.lastName.length === 0 ) {
             console.log("ya une couille dans le paté")
         } else {
+            setModalIsOpen(!modalIsOpen)
             console.log(employeeData)
             dispatch(newEmployee(employeeData))
         }
@@ -128,7 +131,8 @@ function EmployeeForm() {
                                         }))
                                 }}/>
                         </div>
-                    <button type='button' className='buttonDefault' onClick={handleSubmit}>Save</button>
+                    <SubmitModal modalIsOpen={modalIsOpen} stateFunction={setModalIsOpen}/>
+                    <button type='button' className='buttonDefault' onClick={handleSubmit} >Save</button>
                     <p></p>
                 </form>
             </section>

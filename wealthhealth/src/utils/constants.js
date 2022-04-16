@@ -258,8 +258,8 @@ export const departments = [{
 export const initialEmployeeState = {
     firstName: '',
     lastName: '',
-    birthdate : new Date(),
-    startDate: new Date(),
+    birthdate : '',
+    startDate: '',
     street: '',
     city: '',
     state: '',
