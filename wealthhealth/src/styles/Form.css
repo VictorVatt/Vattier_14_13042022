@@ -55,3 +55,13 @@
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
 }
+
+.error-message {
+    color: white;
+    padding: 1rem;
+    border-radius: 0px 0px 5px 0;
+    background-color: #fc3e3e;
+    margin: 0;
+    position: fixed;
+    top: 0;
+}

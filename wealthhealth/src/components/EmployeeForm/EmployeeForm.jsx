@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import moment from "moment"
 import { Link } from 'react-router-dom'
 import { useDispatch } from "react-redux"
 import { newEmployee } from '../../utils/reducers/newEmployeeReducer'
@@ -16,14 +15,20 @@ function EmployeeForm() {
 
     const [employeeData, setEmployeeData] = useState(initialEmployeeState)
     const [modalIsOpen, setModalIsOpen] = useState(false)
+    const [error, setError] = useState(false)
 
     const dispatch = useDispatch()
 
      const handleSubmit = (e) => {
         e.preventDefault()
-        if (employeeData.firstName.length === 0 || employeeData.lastName.length === 0 ) {
-            console.log("ya une couille dans le paté")
+        if (employeeData.firstName.length === 0 || employeeData.lastName.length === 0 || 
+            employeeData.birthdate.length === 0 || employeeData.startDate.length === 0 || 
+            employeeData.street.length === 0 || employeeData.city.length === 0 || 
+            employeeData.state.length === 0 || employeeData.zipCode.length === 0 || 
+            employeeData.department.length === 0) {
+            setError(true)
         } else {
+            setError(false)
             setModalIsOpen(!modalIsOpen)
             console.log(employeeData)
             dispatch(newEmployee(employeeData))
@@ -33,6 +38,7 @@ function EmployeeForm() {
     return (
         <div style={{textAlign: 'center'}}>
             <Link className='header-link' to={'/list'}>View current employee</Link>
+            {error ? <p className='error-message'>Complete all fields</p> : ''}
             <section className="form-wrapper">
                 <h1 className='form-title'>New Employee</h1>
                 <form action="#" id='create-employee-form' className="form" >
@@ -62,23 +68,23 @@ function EmployeeForm() {
                         </div>
                         <div className='input-container'>
                             <label className='input-label'>Date of Birth</label>
-                            <DatePicker dateFormat="MMMM d, yyyy" selected={employeeData.birthdate} id='birthdate' strictParsing
-                                            onChange={(date) => {
-                                                setEmployeeData((employeeState) => ({
-                                                    ...employeeState,
-                                                    birthdate: date
-                                                }))
-                                            }}/>
+                            <DatePicker  wrapperClassName="datepicker"  dateFormat="MMMM d, yyyy" selected={employeeData.birthdate} id='birthdate' strictParsing
+                                                onChange={(date) => {
+                                                    setEmployeeData((employeeState) => ({
+                                                        ...employeeState,
+                                                        birthdate: date
+                                                    }))
+                                                }}/>
                         </div>
                         <div className='input-container'>
                             <label className='input-label'>Start Date</label>
-                            <input type='date' id='startDate' name='startDate' value={employeeData.startDate}
-                                    onChange={(e) => {
-                                    setEmployeeData((employeeState) => ({
-                                        ...employeeState,
-                                        [e.target.id]: e.target.value
-                                    }))
-                                }}></input> 
+                            <DatePicker className='date-picker' dateFormat="MMMM d, yyyy" selected={employeeData.startDate} id='startDate' strictParsing
+                                                onChange={(date) => {
+                                                    setEmployeeData((employeeState) => ({
+                                                        ...employeeState,
+                                                        startDate: date
+                                                    }))
+                                                }}/>
                         </div>
                     </fieldset>
                     <fieldset className='fieldset-adress'>
