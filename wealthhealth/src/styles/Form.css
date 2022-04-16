@@ -5,7 +5,10 @@
     margin: 2rem auto;
     border-radius: 5px;
 }
-
+.header-link {
+    text-decoration: none;
+    color: #365AB4;
+}
 .form-title {
     margin: 0 0 0.5rem 0;
     color: white;

@@ -6,7 +6,6 @@ function Header() {
     return (
         <div className='header-container'>
             <img className='header-logo' src={logo} alt='logo HRnet'/>
-            <Link className='header-link' to={'/list'}>View current employee</Link>
         </div>
     )
 }
