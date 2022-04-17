@@ -30,7 +30,6 @@ function EmployeeForm() {
         } else {
             setError(false)
             setModalIsOpen(!modalIsOpen)
-            console.log(employeeData)
             dispatch(newEmployee(employeeData))
         }
 

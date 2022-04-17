@@ -8,7 +8,10 @@
 }
 .header-link {
     text-decoration: none;
-    color: #365AB4;
+    color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: #365AB4;
 }
 .form-title {
     margin: 0 0 0.5rem 0;
@@ -58,8 +61,8 @@
 
 .error-message {
     color: white;
-    padding: 1rem;
-    border-radius: 0px 0px 5px 0;
+    padding: 1rem 0;
+    width: 100%;
     background-color: #fc3e3e;
     margin: 0;
     position: fixed;

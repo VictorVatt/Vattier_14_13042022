@@ -1,4 +1,21 @@
-.header-link {
+.header-link2 {
     text-decoration: none;
     color: #365AB4;
+    padding: 1rem 0;
+    background-color: white;
+    text-align: center;
+    margin: 1rem auto 0 auto;
+    width: 200px;
+    border-radius: 5px;
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #365AB4;
+    padding: 0 2rem 2rem 2rem;
+}
+
+.page-title {
+    color: white;
 }
