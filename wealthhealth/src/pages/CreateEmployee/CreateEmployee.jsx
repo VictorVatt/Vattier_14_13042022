@@ -1,4 +1,4 @@
-import EmployeeForm from "../../components/EmployeeForm/EmployeeForm"
+import EmployeeForm from "../../components/EmployeeForm/EmployeeForm.jsx"
 
 function CreateEmployee() {
     return (

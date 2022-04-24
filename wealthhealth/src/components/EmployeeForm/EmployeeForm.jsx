@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { newEmployee } from '../../utils/reducers/newEmployeeReducer'
 import { departments, initialEmployeeState } from '../../utils/constants'
@@ -7,7 +7,7 @@ import Select from 'react-select'
 import { USstates } from '../../utils/constants'
 import '../../styles/Form.css'
 import DatePicker from "react-datepicker"
-import SubmitModal from '../Modal/SubmitModal'
+import SubmitModal from '../Modal/SubmitModal.jsx'
 import "react-datepicker/dist/react-datepicker.css";
 
 

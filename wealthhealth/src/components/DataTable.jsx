@@ -1,6 +1,6 @@
 import DataTable from 'react-data-table-component';
 import { useSelector } from "react-redux"
-import { selectEmployeeList } from '../utils/selectors'
+import { selectEmployeeList } from '../utils/selectors.js'
 import { dataTableLegends } from '../utils/constants'
 import '../styles/EmployeeList.css'
 

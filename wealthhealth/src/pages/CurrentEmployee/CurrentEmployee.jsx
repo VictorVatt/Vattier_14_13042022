@@ -1,4 +1,4 @@
-import EmployeeList from "../../components/DataTable"
+import EmployeeList from "../../components/DataTable.jsx"
 import { Link } from 'react-router-dom'
 import "../../styles/CurrentEmployee.css"
 
