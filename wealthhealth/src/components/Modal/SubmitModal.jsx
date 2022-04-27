@@ -29,7 +29,7 @@ function SubmitModal({modalIsOpen, stateFunction}) {
                 outline: 'none',
                 padding: '20px',
                 margin: "500px 400px",
-            },
+            }````,
         }} isOpened={modalIsOpen} content={"New employee has been registered"} handleCloseModal={() => stateFunction(false)} buttonContent={"Close"}/>
     )
 }
